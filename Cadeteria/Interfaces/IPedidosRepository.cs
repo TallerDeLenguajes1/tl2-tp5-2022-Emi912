@@ -10,6 +10,7 @@ namespace CadeteriaMVC.Interfaces
         bool DeletePedido(int id);
         Pedido GetById(int id);
         Cliente GetCliente(int id);
-
+        int GetLastIdCliente();
+        int GetLastIdPedido();
     }
 }

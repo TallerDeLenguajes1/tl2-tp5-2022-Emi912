@@ -20,11 +20,17 @@ namespace Cadetes.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("sesion", "probando");
             return View();
         }
 
         public IActionResult Privacy()
         {
+
+                string prueba = HttpContext.Session.GetString("sesion");
+            ViewData["prueba"] = prueba;
+            
+
             return View();
         }
 

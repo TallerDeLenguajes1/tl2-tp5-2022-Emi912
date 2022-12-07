@@ -14,13 +14,27 @@ namespace CadeteriaMVC.Helpers
                     Nro = pedido.Id,
                     Observacion = pedido.Observacion,
                     Nombre_Cliente = pedido.Cliente.Nombre,
-                    Estado = pedido.Estado.ToString()
+                    Estado = pedido.Estado
                 };
                 pedidosVm.Add(pedidoViewModel);
 
             }
             return pedidosVm;
 
+        }
+
+
+        public static PedidoViewModel PedidoToPedidoVM(Pedido pedido)
+        {
+            PedidoViewModel pedidoViewModel = new PedidoViewModel()
+            {
+                Nro = pedido.Id,
+                Observacion = pedido.Observacion,
+                Nombre_Cliente = pedido.Cliente.Nombre,
+                Estado = pedido.Estado
+            };
+
+            return pedidoViewModel;
         }
     }
 }

@@ -9,6 +9,7 @@ using Cadetes.Models;
 using CadeteriaMVC.Models.ViewModels;
 using CadeteriaMVC.Helpers;
 using CadeteriaMVC.Interfaces;
+using CadeteriaMVC.Models;
 
 namespace Cadetes.Controllers
 {
@@ -43,6 +44,54 @@ namespace Cadetes.Controllers
             //HelperArchivos.InsertCliente(cliente);
             //HelperArchivos.InsertPedido(pedido);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int id)
+        {
+            Pedido nPedido = _repo.GetById(id);
+            PedidoViewModel pedidoVM = Mapper.PedidoToPedidoVM(nPedido);
+
+            return View(pedidoVM);
+        }
+
+        
+        public IActionResult Delete(int id)
+        {
+            Pedido nPedido = _repo.GetById(id);
+            PedidoViewModel pedidoVM = Mapper.PedidoToPedidoVM(nPedido);
+
+            return View(pedidoVM);
+        
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public IActionResult DeleteConfirm(int id)
+        {
+            _repo.DeletePedido(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+       
+        [HttpPost]
+        public IActionResult Create(PedidoViewModel pedido)
+        {
+            Cliente cliente = new Cliente()
+            {
+                Id = _repo.GetLastIdCliente(),
+                Telefono = pedido.Telefono,
+                Nombre = pedido.Nombre_Cliente,
+                Direccion = pedido.Direccion
+            };
+
+        
+            return RedirectToAction("Index");
+
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

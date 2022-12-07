@@ -8,11 +8,13 @@ namespace CadeteriaMVC.Repository
 {
     public class CadeteRepository : ICadeteRepository
     {
-        private readonly string _connectionString = @"Data Source=C:\Users\Emilio\Desktop\Emilio\Taller de Lenguajes II\Cadeteria\CadeteriaMVC\DB\Cadeteria.db;Cache=Shared";
+        private readonly string _connectionString;
 
-        public CadeteRepository()
+        
+
+        public CadeteRepository(IConfiguration _configuration)
         {
-
+            _connectionString = _configuration.GetConnectionString("Default");
         }
 
         public bool DeleteCadete(int id)

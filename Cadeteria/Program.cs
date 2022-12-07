@@ -8,6 +8,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IPedidosRepository, PedidoRepository>();
 builder.Services.AddSingleton<IClientesRepository, ClienteRepository>();
 builder.Services.AddSingleton<ICadeteRepository, CadeteRepository>();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromDays(2);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+
+});
 
 
 
@@ -25,6 +32,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 

@@ -8,10 +8,11 @@ namespace CadeteriaMVC.Repository
 {
     public class PedidoRepository : IPedidosRepository
     {
-        private readonly string _connectionString = @"Data Source=C:\Users\Emilio\Desktop\Emilio\Taller de Lenguajes II\Cadeteria\CadeteriaMVC\DB\Cadeteria.db;Cache=Shared";
+        private readonly string _connectionString;
 
-        public PedidoRepository()
+        public PedidoRepository(IConfiguration _configuration)
         {
+            _connectionString = _configuration.GetConnectionString("Default");
         }
         public bool DeletePedido(int id)
         {
@@ -106,6 +107,47 @@ namespace CadeteriaMVC.Repository
 
         }
 
-        
+        public int GetLastIdCliente()
+        {
+            string query = $"SELECT MAX(clienteID) + 1 FROM Clientes";
+            int id = 0;
+            using (SqliteConnection conn = new SqliteConnection(_connectionString))
+            {
+                conn.Open();
+                SqliteCommand command = new SqliteCommand(query, conn);
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        id = Convert.ToInt32(reader[0]);
+                     
+                    }
+                }
+
+            }
+            return id;
+
+        }
+
+        public int GetLastIdPedido()
+        {
+            string query = $"SELECT MAX(pedidoID) FROM Pedidos";
+            int id = 0;
+            using (SqliteConnection conn = new SqliteConnection(_connectionString))
+            {
+                conn.Open();
+                SqliteCommand command = new SqliteCommand(query, conn);
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        id = Convert.ToInt32(reader[0]);
+
+                    }
+                }
+
+            }
+            return id;
+        }
     }
 }

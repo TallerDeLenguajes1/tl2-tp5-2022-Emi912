@@ -2,21 +2,26 @@ using CadeteriaMVC.Models;
 using System;
 using System.Collections.Generic;
 
-public class Cadeteria : Entity
+namespace CadeteriaMVC.Models
 {
-    public string Nombre { get; set; }
-    public List<Cadeteria> ListadoCadetes { get; set; }
-
-    public Cadeteria()
+    public class Cadeteria : Entity
     {
-        
-    }
-    public Cadeteria(string nombre, string direccion)
-    {
-        this.Nombre = nombre;
-    }
+        public string Nombre { get; set; }
+        public string Direccion { get; set; }
+        public List<Cadeteria> ListadoCadetes { get; set; }
 
-    
+        public Cadeteria()
+        {
 
-   
+        }
+        public Cadeteria(string nombre, string direccion)
+        {
+            Nombre = nombre;
+            Direccion = direccion;
+        }
+
+
+
+
+    }
 }

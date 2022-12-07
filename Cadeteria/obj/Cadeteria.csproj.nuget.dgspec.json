@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\Cadeteria\\Cadeteria\\Cadeteria.csproj": {}
+    "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\tl2-tp5-2022-Emi912\\Cadeteria\\Cadeteria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\Cadeteria\\Cadeteria\\Cadeteria.csproj": {
+    "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\tl2-tp5-2022-Emi912\\Cadeteria\\Cadeteria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\Cadeteria\\Cadeteria\\Cadeteria.csproj",
+        "projectUniqueName": "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\tl2-tp5-2022-Emi912\\Cadeteria\\Cadeteria.csproj",
         "projectName": "Cadeteria",
-        "projectPath": "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\Cadeteria\\Cadeteria\\Cadeteria.csproj",
+        "projectPath": "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\tl2-tp5-2022-Emi912\\Cadeteria\\Cadeteria.csproj",
         "packagesPath": "C:\\Users\\Emilio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\Cadeteria\\Cadeteria\\obj\\",
+        "outputPath": "C:\\Users\\Emilio\\Desktop\\Emilio\\Taller de Lenguajes II\\tl2-tp5-2022-Emi912\\Cadeteria\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.Data.Sqlite": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -63,8 +67,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -76,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.111\\RuntimeIdentifierGraph.json"
         }
       }
     }

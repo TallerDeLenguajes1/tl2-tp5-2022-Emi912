@@ -9,11 +9,11 @@ namespace CadeteriaMVC.Repository
     public class ClienteRepository : IClientesRepository
     {
 
-        private readonly string _connectionString = @"Data Source=C:\Users\Emilio\Desktop\Emilio\Taller de Lenguajes II\Cadeteria\CadeteriaMVC\DB\Cadeteria.db;Cache=Shared";
+        private readonly string _connectionString;
 
-        public ClienteRepository()
+        public ClienteRepository(IConfiguration _configuration)
         {
-
+            _connectionString = _configuration.GetConnectionString("Default");
         }
 
         public bool DeleteCliente(int id)
